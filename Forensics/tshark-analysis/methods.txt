@@ -1,0 +1,17 @@
+tshark -ns file-name.pcap*ng
+
+# if the packet size is low ignore icmp tunneling
+# hint: check for plain/ASCI text
+
+strings file-name.pcap*ng
+
+# if the packet has alot of repeat traffic. Filter that out
+
+strings file-name.pcap*ng | grep -v noise-you-wanna-exclude
+
+# wanna filter out more than one patterns?
+
+strings file-name.pcap*ng | grep -v 'pattern-1\|pattern2\|pattern3'
+
+
+# reference: https://andrewroderos.com/how-to-solve-my-pcap-ctf-challenges/
